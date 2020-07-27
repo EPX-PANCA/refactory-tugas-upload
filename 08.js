@@ -1,7 +1,6 @@
 const {program} = require('@caporal/core');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const {logger} = require('caporal');
 
 program
     .command('headlines', 'get title link')
