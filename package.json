@@ -1,0 +1,19 @@
+{
+  "name": "latihan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "greeting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@caporal/core": "^2.0.2",
+    "caporal": "^1.4.0"
+  },
+  "devDependencies": {
+    "public-ip": "^4.0.2"
+  }
+}
