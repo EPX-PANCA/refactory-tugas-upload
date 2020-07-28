@@ -26,7 +26,7 @@ axios.get(`${urlUser}`)
 
 async () => {
   try {
-    const responseUser = await get(`${urlUser}`);
+    const responseUser = await axios.get(`${urlUser}`);
    console.log(responseUser);
     const responsePost = await axios.get(`${urlPost}`);
    console.log(responsePost);
