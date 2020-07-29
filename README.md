@@ -1,1 +1,1 @@
-# CLI vs Sequelize
+# TODO APP | CLI vs Sequelize
