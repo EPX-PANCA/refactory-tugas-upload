@@ -1,0 +1,27 @@
+{
+  "name": "refactory-tugas-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EPX-PANCA/refactory-tugas-upload.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EPX-PANCA/refactory-tugas-upload/issues"
+  },
+  "homepage": "https://github.com/EPX-PANCA/refactory-tugas-upload#readme",
+  "devDependencies": {
+    "@caporal/core": "^2.0.2"
+  },
+  "dependencies": {
+    "mongoose": "^5.9.26",
+    "prompt": "^1.0.0"
+  }
+}
