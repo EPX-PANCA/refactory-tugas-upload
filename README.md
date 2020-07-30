@@ -1,8 +1,10 @@
 # TODO APP | CLI vs Sequelize
-node todo list
-node todo add "hallo"
-node todo update <id> "hay"
-node todo clear
-node todo del <id>
-node todo done <id>
-node todo undone <id>
+
+
+node todo list  <br/>
+node todo add "hallo" <br/>
+node todo update <id> "hay" <br/>
+node todo clear <br/>
+node todo del <id> <br/>
+node todo done <id> <br/>
+node todo undone <id> <br/>
