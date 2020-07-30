@@ -78,7 +78,7 @@ program
     }else if(res.answer == "n" || res.answer == "N"){
     console.log("Clear canceled");
     }else{
-        `Error : ${err}`
+        console.log(`Error : ${err}`);
     }
     });
     
