@@ -39,7 +39,7 @@ program
 .argument("<update>","update todo")
 .action(({args})=>{
     (async()=>{
-       Todo.update({kegiatan: args.update},
+     await Todo.update({kegiatan: args.update},
         {where:{id:args.id}})
         await sequelize.close()
         })();
