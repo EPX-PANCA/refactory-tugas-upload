@@ -1,6 +1,6 @@
 # TODO APP | CLI vs Sequelize
 
-
+####
 * node todo list
 * node todo add "hallo"
 * node todo update <id> "hay"
