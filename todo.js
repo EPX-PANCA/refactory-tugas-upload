@@ -1,10 +1,12 @@
 const {program} = require('@caporal/core');
 const mongoose = require('mongoose');
 const prompt = require("prompt");
+const autoIncrement = require('mongoose-auto-increment');
 mongoose.connect('mongodb://localhost/todo', {useNewUrlParser: true, useUnifiedTopology: true});
-
+const db = mongoose.connection;
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 const checkConn = () =>{
-  const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("hoorayyy");
@@ -16,6 +18,16 @@ const todoSchema = new mongoose.Schema({
     kegiatan: String,
     cek:{type:Boolean, default:false}
   });
+// buat ganti id yg panjang jadi pendek
+// https://stackoverflow.com/questions/28357965/mongoose-auto-increment
+
+  autoIncrement.initialize(db);
+  todoSchema.plugin(autoIncrement.plugin, {
+      model:'todoModel',
+      field:'_id',
+      startAt:1
+  });
+
   
 const todoModel = new mongoose.model('todoModel', todoSchema);
 
@@ -26,7 +38,10 @@ const callback = (error, result)=>{
 
 const showList = async () =>{
     const listTodo = await todoModel.find();
-    Object.values(listTodo).forEach(val=>{
+    if(listTodo == ""){
+        console.log("[empty : add to do]");
+    }
+    listTodo.forEach(val=>{
         if(val.cek == true){
             console.log( `${val._id} ${val.kegiatan} (Done)`);
         }
@@ -38,6 +53,8 @@ const showList = async () =>{
    
     mongoose.disconnect();
 }
+
+
 
 program
 .command("list","show list")
@@ -53,9 +70,10 @@ program
 .argument("<add>","add todo")
 .action(({args})=>{
     (async()=>{
+
         const todo = new todoModel ({ kegiatan: args.add },callback);
         await todo.save();
-        showList();
+            showList();
         }
         )();
 })
@@ -69,16 +87,14 @@ program
 .argument("<update>","update todo")
 .action(({args})=>{
     (async()=>{
-      await todoModel.updateOne(
-         {_id:args.id},
-         {kegiatan:args.update},
-         callback
-         )
-         showList();
+        await todoModel.updateOne(
+            {_id:args.id},
+            {kegiatan:args.update},
+            callback)
+            showList();
         })();
 
-
-})
+});
 
 //todo del <id>
 
@@ -89,10 +105,9 @@ program
     (async()=>{
         await todoModel.deleteOne({_id:args.id},callback)
         showList();
-        })();
-
-
-})
+    })();
+        
+});
 
 //todo clear
 //hapus semua todo
@@ -103,10 +118,12 @@ program
     console.log("Are you sure want to delete? [y/N]");
     prompt.get("answer", function(err, res){
     if(res.answer == "y" || res.answer == "Y"){
-        (async()=>{
-            await todoModel.deleteMany({}, callback) 
-            showList();
-             })();
+       (async()=>{
+        todoModel.deleteMany({}, callback) 
+        showList();
+        
+       })();
+            
     }else if(res.answer == "n" || res.answer == "N"){
     console.log("Clear canceled");
     mongoose.disconnect();
@@ -115,7 +132,7 @@ program
     }
     });
     
-})
+});
 
 //todo done <id>
 program
@@ -132,7 +149,7 @@ program
         })();
 
 
-})
+});
 
 //todo undone <id>
 program
@@ -149,7 +166,7 @@ program
         })();
 
 
-})
+});
 
 
-program.run()
+program.run();
