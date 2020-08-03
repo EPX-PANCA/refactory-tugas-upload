@@ -1,0 +1,15 @@
+extends layouts.pug
+
+block content
+    .col-12
+        h1 
+          center List Todo
+        hr
+        ul
+            each task in tasks
+                li
+                    a(href='detail/'+task._id)=task.name
+        hr
+
+
+

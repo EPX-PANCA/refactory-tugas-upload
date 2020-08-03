@@ -1,0 +1,42 @@
+extends layouts.pug
+
+block content
+    .col-12
+        h1 Dashboard
+        hr
+        h1 
+          center Add Todo
+    .col-12
+        form(method="POST" action='/')
+            label(for = 'Task') Input Task
+            input(id = 'Task' type='text' class="form-control mb-3" name="task" placeholder="Task")
+            label(for = 'Des') Input Description
+            input(id='Des' type='text' class="form-control mb-3" name="description" placeholder="Description") 
+            button(type="submit" class="btn btn-primary") Send
+
+    .col-12
+        hr
+        h1
+          center List todo
+        hr
+        - ol
+            each to in todo
+              .row
+                .col-4
+                  if to.status == false
+                    li=to.name
+                  else
+                    li=`${to.name} (Done)`
+                .col-2
+                  if to.status == false 
+                    a(class="btn btn-success" href=`/${to._id}/done` role="button") Done
+                  else
+                    a(class="btn btn-warning" href=`/${to._id}/undone` role="button") Undone
+                .col-2
+                  a(class="btn btn-primary" href=`/detail/${to._id}` role="button") Details/Edit 
+                .col-2
+                  a(class="btn btn-danger" href=`/${to._id}/del` role="button") Delete
+              br
+
+    script.
+     console.log(!{JSON.stringify(todo)})

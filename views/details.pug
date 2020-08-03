@@ -1,0 +1,14 @@
+extends layouts.pug
+
+block content
+    .col-12
+        h1 
+          center Details - Edit Todo
+    .col-12
+        form(method="POST" action='/details')
+            input(id = 'Task' type='hidden' class="form-control mb-3" name="id" placeholder="Task" value=`${task._id}`)
+            label(for = 'Task') Edit Task
+            input(id = 'Task' type='text' class="form-control mb-3" name="task" placeholder="Task" value=`${task.name}`)
+            label(for = 'Des') Edit Description
+            input(id='Des' type='text' class="form-control mb-3" name="description" placeholder="Description" value=`${task.description}`) 
+            button(type="submit" class="btn btn-primary") Update
