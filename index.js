@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 mongoose.connect("mongodb://localhost/todoexpress", { useNewUrlParser: true });
 
 route.set("view engine", "pug");
+route.use(express.static("public"));
 route.use(bodyParser.urlencoded({ extended: false }));
 route.use(bodyParser.json());
 
