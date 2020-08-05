@@ -16,5 +16,7 @@ block content
             input.form-control(id="description" type="text"  name="description" value=`${todo.description}` required)
         .form-group
             label(for="photo") Photo
+            br
+            img(src=`/images/uploads/${todo.photo}`, alt="image", style="width:10%")
             input.form-control(id="photo" type="file"  name="photo" value=`${todo.photo}` required)
         button.btn.btn-primary(type="submit") Add Todo
