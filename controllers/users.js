@@ -38,6 +38,12 @@ class UserController {
 
   static async editTodo(req, res){
     const { params, file, body } = req;
+    
+    let dir = path.join(__dirname, './../public/images/uploads/')
+    const photo = await UserModel.findById({_id:body.id})
+    let unlink = dir + photo.photo;
+    fs.unlinkSync(unlink)
+
     await UserModel.updateOne({_id:body.id},{ title: body.title, description:body.description, photo: file.filename });
     res.redirect('/users')
   }
