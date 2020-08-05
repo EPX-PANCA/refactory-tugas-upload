@@ -7,8 +7,8 @@ router.get("/", UserControllers.listTodo)
 
 router.post("/", uploadsMiddleware.single("photo"), UserControllers.saveTodo)
 
-router.get("users/:id/del", UserControllers.delTodo)
+router.get("/:id/del", UserControllers.delTodo)
 
-router.get("users/:id/det", UserControllers.detailTodo)
+router.get("/:id/det", UserControllers.detailTodo)
 
 module.exports = router;

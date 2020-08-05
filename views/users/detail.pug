@@ -1,0 +1,20 @@
+extends ../layouts
+
+block content
+    .col-12
+        h1 Dashboard
+        hr
+        h1 
+          center Add Todo
+        br
+    form(method="post" action=`/users` enctype="multipart/form-data")
+        .form-group
+            label(for="title") Title
+            input.form-control(id="title" type="text"  name="title" value=`${todo.title}` required)
+        .form-group
+            label(for="description") Description
+            input.form-control(id="description" type="text"  name="description" value=`${todo.description}` required)
+        .form-group
+            label(for="photo") Photo
+            input.form-control(id="photo" type="file"  name="photo" value=`${todo.photo}` required)
+        button.btn.btn-primary(type="submit") Add Todo
