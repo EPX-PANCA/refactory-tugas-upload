@@ -1,4 +1,6 @@
 const UserModel = require("../models/user");
+const fs = require("fs");
+const path = require("path");
 class UserController {
 
 
@@ -18,7 +20,11 @@ class UserController {
 
 
   static async delTodo (req, res) {
+    let dir = path.join(__dirname, './../public/images/uploads/')
+    const photo = await UserModel.findById({ _id: req.params.id })
     await UserModel.findByIdAndDelete({ _id: req.params.id})
+    let unlink = dir + photo.photo;
+    fs.unlinkSync(unlink)
     res.redirect('/users')
   }
 
@@ -27,8 +33,21 @@ class UserController {
   static async detailTodo (req, res) {
     const list = await UserModel.findById({ _id: req.params.id})
     res.render('users/detail', { todo:list})
-   // const list = await UserModel.findById({ _id: req.params.id})
     await TodoModel.updateOne({_id:req.body.id},{ title: body.title, description:body.description, photo: file.filename });
+    
+  }
+
+
+  static async doneTodo (req, res) {
+    await UserModel.updateOne({_id:req.params.id},{ status:true });
+    res.redirect('/users')
+    
+  }
+
+
+  static async undoneTodo (req, res) {
+    await UserModel.updateOne({_id:req.params.id},{ status:false });
+    res.redirect('/users')
     
   }
 

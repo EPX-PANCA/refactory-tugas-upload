@@ -11,4 +11,8 @@ router.get("/:id/del", UserControllers.delTodo)
 
 router.get("/:id/det", UserControllers.detailTodo)
 
+router.get("/:id/done", UserControllers.doneTodo)
+
+router.get("/:id/undone", UserControllers.undoneTodo)
+
 module.exports = router;
