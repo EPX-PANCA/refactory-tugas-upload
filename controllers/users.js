@@ -31,14 +31,21 @@ class UserController {
 
 
   static async detailTodo (req, res) {
+    let dir = path.join(__dirname, './../public/images/uploads/')
     const list = await UserModel.findById({ _id: req.params.id})
     res.render('users/detail', { todo:list})
-    await TodoModel.updateOne({_id:req.body.id},{ title: body.title, description:body.description, photo: file.filename });
-    
+  }
+
+  static async editTodo(req, res){
+    const { params, file, body } = req;
+    await UserModel.updateOne({_id:body.id},{ title: body.title, description:body.description, photo: file.filename });
+    res.redirect('/users')
   }
 
 
+
   static async doneTodo (req, res) {
+
     await UserModel.updateOne({_id:req.params.id},{ status:true });
     res.redirect('/users')
     

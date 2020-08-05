@@ -10,9 +10,12 @@ router.post("/", uploadsMiddleware.single("photo"), UserControllers.saveTodo)
 router.get("/:id/del", UserControllers.delTodo)
 
 router.get("/:id/det", UserControllers.detailTodo)
+      
 
 router.get("/:id/done", UserControllers.doneTodo)
 
 router.get("/:id/undone", UserControllers.undoneTodo)
+
+router.post("/edit", uploadsMiddleware.single("photo"), UserControllers.editTodo)
 
 module.exports = router;
