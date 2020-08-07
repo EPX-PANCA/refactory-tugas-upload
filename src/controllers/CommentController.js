@@ -22,7 +22,7 @@ class CommentController {
         postId:body.postId,
       });
       response.message = "sukses simpan data";
-      response.data = [];
+      response.data = save;
       res.status(201).json(response);
     } catch (error) {
       response.status = false;
@@ -35,7 +35,7 @@ class CommentController {
     const { id } = req.params;
     const { body } = req;
     try {
-      const a = await user.findByPk(id)
+      const a = await comment.findByPk(id)
       if(a == undefined) throw new Error("id not found")
       await comment.update({
         content: body.content,
@@ -46,7 +46,7 @@ class CommentController {
         postId:body.postId,
       },{where:{id:id}});
       response.message = `sukses update data comment dengan id : ${id}`;
-      response.data = [];
+      response.data =  await comment.findByPk(id);
       res.status(201).json(response);
     } catch (error) {
       response.status = false;
@@ -98,7 +98,7 @@ class CommentController {
   static async deleteComment(req, res) {
     const { id } = req.params;
     try {
-      const a = await user.findByPk(id)
+      const a = await comment.findByPk(id)
       if(a == undefined) throw new Error("id not found")
       await comment.destroy({where:{id:id}})
       response.message = `sukses hapus data comment dengan id : ${id}`;

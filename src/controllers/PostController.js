@@ -20,7 +20,7 @@ class PostController {
         userId: body.userId
       });
       response.message = "sukses simpan data";
-      response.data = [];
+      response.data = save;
       res.status(201).json(response);
     } catch (error) {
       response.status = false;
@@ -33,7 +33,7 @@ class PostController {
     const { id } = req.params;
     const { body } = req;
     try {
-      const a = await user.findByPk(id)
+      const a = await post.findByPk(id)
       if(a == undefined) throw new Error("id not found")
       await post.update({
         title: body.title,
@@ -43,7 +43,7 @@ class PostController {
         userId: body.UserId
       },{where:{id:id}});
       response.message = `sukses update data post dengan id : ${id}`;
-      response.data = [];
+      response.data =  await post.findByPk(id);
       res.status(201).json(response);
     } catch (error) {
       response.status = false;
@@ -95,7 +95,7 @@ class PostController {
   static async deletePost(req, res) {
     const { id } = req.params;
     try {
-      const a = await user.findByPk(id)
+      const a = await post.findByPk(id)
       if(a == undefined) throw new Error("id not found")
       await post.destroy({where:{id:id}})
       response.message = `sukses hapus data post dengan id : ${id}`;

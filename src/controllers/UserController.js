@@ -20,7 +20,7 @@ class UserController {
         photo: body.photo,
       });
       response.message = "sukses simpan data";
-      response.data = [];
+      response.data = save;
       res.status(201).json(response);
     } catch (error) {
       response.status = false;
@@ -36,7 +36,7 @@ class UserController {
     try {
       const a = await user.findByPk(id)
       if(a == undefined) throw new Error("id not found")
-      await user.update({
+         await user.update({
         username: body.username,
         password: body.password,
         salt: body.salt,
@@ -44,7 +44,7 @@ class UserController {
         photo: body.photo,
       },{where:{id:id}});
       response.message = `sukses update data user dengan id : ${id}`;
-      response.data = [];
+      response.data =  await user.findByPk(id);
       res.status(201).json(response);
     } catch (error) {
       response.status = false;
