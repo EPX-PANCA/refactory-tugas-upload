@@ -1,4 +1,4 @@
-const { comment } = require("../models");
+const { user, post, comment } = require("../models");
 
 
 const response = {
@@ -57,6 +57,7 @@ class CommentController {
   static async getComment(req, res) {
     const { id } = req.params;
     const commentdetail = await comment.findByPk(id, {
+      include: [{model:user},{model:post}]
     });
     try {
       if (!commentdetail) throw new Error("Comment not found")
@@ -75,6 +76,7 @@ class CommentController {
 
   static async getCommentAll(req, res) {
     const commentdetail = await comment.findAll({
+      include: [{model:user},{model:post}]
     });
     try {
       if (!commentdetail) throw new Error("Comment not found")

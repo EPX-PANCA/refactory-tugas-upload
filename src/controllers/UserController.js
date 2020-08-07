@@ -1,5 +1,4 @@
-const { user, post } = require("../models");
-const comment = require("../models/comment");
+const { user, post, comment } = require("../models");
 
 const response = {
   status: true,
@@ -56,7 +55,7 @@ class UserController {
   static async getUser(req, res) {
     const { id } = req.params;
     const userdetail = await user.findByPk(id, {
-      include: post,
+      include: [{model:post},{model:comment}]
     });
     try {
       if (!userdetail) throw new Error("User not found")
@@ -74,7 +73,7 @@ class UserController {
 
   static async getUserAll(req, res) {
     const userdetail = await user.findAll({
-      include: post,
+      include: [{model:post},{model:comment}]
     });
     try {
       if (!userdetail) throw new Error("User not found")
