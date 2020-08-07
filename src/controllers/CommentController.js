@@ -35,6 +35,8 @@ class CommentController {
     const { id } = req.params;
     const { body } = req;
     try {
+      const a = await user.findByPk(id)
+      if(a == undefined) throw new Error("id not found")
       await comment.update({
         content: body.content,
         status: body.status,
@@ -96,7 +98,8 @@ class CommentController {
   static async deleteComment(req, res) {
     const { id } = req.params;
     try {
-  
+      const a = await user.findByPk(id)
+      if(a == undefined) throw new Error("id not found")
       await comment.destroy({where:{id:id}})
       response.message = `sukses hapus data comment dengan id : ${id}`;
       response.data = [];

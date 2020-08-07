@@ -33,6 +33,8 @@ class PostController {
     const { id } = req.params;
     const { body } = req;
     try {
+      const a = await user.findByPk(id)
+      if(a == undefined) throw new Error("id not found")
       await post.update({
         title: body.title,
         content: body.content,
@@ -93,7 +95,8 @@ class PostController {
   static async deletePost(req, res) {
     const { id } = req.params;
     try {
-  
+      const a = await user.findByPk(id)
+      if(a == undefined) throw new Error("id not found")
       await post.destroy({where:{id:id}})
       response.message = `sukses hapus data post dengan id : ${id}`;
       response.data = [];

@@ -34,6 +34,8 @@ class UserController {
     const { id } = req.params;
     const { body } = req;
     try {
+      const a = await user.findByPk(id)
+      if(a == undefined) throw new Error("id not found")
       await user.update({
         username: body.username,
         password: body.password,
@@ -92,7 +94,8 @@ class UserController {
   static async deleteUser(req, res) {
     const { id } = req.params;
     try {
-  
+      const a = await user.findByPk(id)
+      if(a == undefined) throw new Error("id not found")
       await user.destroy({where:{id:id}})
       response.message = `sukses hapus data user dengan id : ${id}`;
       response.data = [];
