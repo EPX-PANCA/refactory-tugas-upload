@@ -55,7 +55,7 @@ class UserController {
   }
 
   static async getUser(req, res) {
-    const { id } = req.params;
+    const { id } = req.params;///bisa pakai findOne
     const userdetail = await user.findByPk(id, {
       include: [{model:post},{model:comment}]
     });

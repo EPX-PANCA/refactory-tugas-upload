@@ -15,7 +15,10 @@ module.exports = {
         type: Sequelize.ENUM("active", "deactive"),
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+       references :  { model: 'users', key: 'id' },
+       onUpdate:'cascade',
+       onDelete: 'cascade'
       },
       email: {
         type: Sequelize.STRING
@@ -24,7 +27,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       postId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+       references :  { model: 'posts', key: 'id' },
+       onUpdate:'cascade',
+       onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,
