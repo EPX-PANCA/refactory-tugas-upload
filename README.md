@@ -1,7 +1,7 @@
 # TUGAS API MVC AUTH
 
 
-* Method PUT : http://localhost:3000/auths/login 
+* Method POST : http://localhost:3000/auths/login 
     * Masukkan {"username": "Panca", "password": "passwottt"} atau cari sendiri username dan password setelah seeder untuk generate token
 
 
