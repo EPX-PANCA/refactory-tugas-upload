@@ -49,7 +49,7 @@ try {
       
     
 } catch (error) {
-res.json("Error")
+res.status(400).json("Error")
 }
 
   
