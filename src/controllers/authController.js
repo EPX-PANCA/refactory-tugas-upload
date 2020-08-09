@@ -4,7 +4,8 @@ const jsonwebtoken = require("jsonwebtoken")
 const Strategy = require("passport-local").Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const models = require("../models")
+const models = require("../models");
+const {user} = require("../models")
 const express = require("express");
 const app = express();
 
@@ -17,6 +18,12 @@ let opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = 'secret';
 
+
+const response = {
+  status: true,
+  message: "Data OK",
+  data: [],
+};
 
 class authController {
 
@@ -42,7 +49,7 @@ try {
       
     
 } catch (error) {
-res.json("Data ga cocok, coba cek lagi biar bisa generate token")
+res.json("Error")
 }
 
   
@@ -81,6 +88,27 @@ res.json("Data ga cocok, coba cek lagi biar bisa generate token")
 //         res.json("hallo")
 //     }
 
+static async register(req, res){
+  const { body } = req;
+
+    try {
+      const save = await user.create({
+        username: body.username,
+        password: body.password,
+        salt: body.salt,
+        email: body.email,
+        photo: body.photo,
+      });
+      response.message = "sukses simpan data";
+      response.data = save;
+      res.status(201).json(response);
+    } catch (error) {
+      response.status = false;
+      response.message = error.message;
+      res.status(400).json(response);
+    }
+
+}
 
 
 }
