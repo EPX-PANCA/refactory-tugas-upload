@@ -1,4 +1,4 @@
 # BACKGROUND PROCESS
 
-* Sudah mencoba export pdf (bukan di folder tugas ini), tapi belum bisa di controller yg sama.
-* Tes send email dan attach pdf (tanpa generate) sudah berhasil
+* Tes send email (queue) dan attach pdf (tanpa generate) sudah berhasil
+* Sudah nyoba generate pdf dan berhasil (di folder project lain), tapi bingung mau menggabungkannya
