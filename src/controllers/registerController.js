@@ -5,8 +5,6 @@ const path = require("path");
 const puppeteer = require("puppeteer");
 require('dotenv').config();
 
-
-
 const response = {
     status: true,
     message: "Data OK",
@@ -15,7 +13,7 @@ const response = {
 };
 let nama = "";
 let alamat = "";
-let no_telpon ="";
+let no_telpon = "";
 let dir = path.join(__dirname, '../public/pdf');
 
 class registerController {
@@ -25,8 +23,7 @@ class registerController {
         const sendMailQueue = new Queue("sendMail", {
             redis: {
                 host: process.env.REDIS_HOST,
-                port: process.env.REDIS_PORT,
-
+                port: process.env.REDIS_PORT
             }
         });
 
@@ -85,12 +82,13 @@ class registerController {
                 to: email,
                 subject: `Selamat Bergabung ${nama}`,
                 text: "This email is from bull job scheduler tutorial.",
-                attachments: [{
-                    filename: 'somefile.pdf',
-                    path: `${dir}/somefile.pdf`,
-                    contentType: 'application/pdf'
-                  }],
-                
+                attachments: [
+                    {
+                        filename: 'somefile.pdf',
+                        path: `${dir}/somefile.pdf`,
+                        contentType: 'application/pdf'
+                    }
+                ]
             };
             const transport = nodemailer.createTransport({
                 service: "gmail",
