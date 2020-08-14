@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="stylesheets/style.css" rel="stylesheet">
+        <title>Panca Putra Pahlawan</title>
+    </head>
+    <body class="bg-blue-300">
+        <div id="app" class="flex grid bg-white mx-auto max-w-2xl rounded overflow-hidden shadow-2xl mt-10 xs:p-5">
+            <div class="p-10 flex mx-auto">
+                <p class="text-2xl font-sans font-bold text-blue-600">Todo List App Vue JS</p>
+            </div>
+            <div class="p-10 flex items-center">
+                <input type="text" class=" w-full font-sans text-lg p-1 rounded bg-gray-300 border border-gray-300 focus:outline-none focus:bg-white focus:border-blue-500" name="todo" id="todo" v-model="todo" @keyup.enter="addTodo">
+                <button class="rounded bg-blue-500 text-lg text-white px-3 py-1 border hover:bg-blue-600 focus:outline-none focus:border-white" @click="addTodo">+</button>
+            </div>
+            <div class="pl-10 pb-10 pr-10 flex flex-wrap" v-if="todos.length > 0" v-for="(todo, index) in todos" :key="index">
+        
+                <div class="w-full md:w-3/4"><input type="checkbox" class="form-checkbox h-6 w-6 text-green-700"> <span class="font-sans font-bold text-blue-600 text-lg">{{todo}}</span></div>
+                <div class="w-full md:w-1/4"><button class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded" @click="deleteTodo(index)">Delete</button></div>
+            </div>
+            
+          </div>
+
+
+        
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue.js"></script>
+</html>
