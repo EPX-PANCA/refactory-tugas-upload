@@ -1,0 +1,28 @@
+{
+  "name": "html-static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss build stylesheets/tailwind.css -o stylesheets/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EPX-PANCA/html-static.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EPX-PANCA/html-static/issues"
+  },
+  "homepage": "https://github.com/EPX-PANCA/html-static#readme",
+  "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "tailwindcss": "^1.6.2"
+  },
+  "dependencies": {
+    "postcss-cli": "^7.1.1"
+  }
+}
