@@ -33,11 +33,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-## Vue Component
-membuat searching apps (apps), menggunakan vue yang di generate dengan vue cli.
-dan dipecah2 ke compoenent berdasarkan fungsinya masing. yang di tambahkan select item, yang nanti akan di tampilkan di atas daftar list.
-jadi kurang lebih ada 3 component:
+## Vue Slot Plugin
+Membuat halaman seperti ini dengan di tambahkan searchbox di atasnya.
 
-* search box
-* daftar selected item
-* daftar item - yang belum terpilih
+ketika di klik, seoalah2, akan menambah ke cart atau selected list box.
+untuk render price menggunakan filter,
+ketika button add di klik, makan muncul semacam alert , di bagain atas
