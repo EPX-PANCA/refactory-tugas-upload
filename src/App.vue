@@ -37,12 +37,12 @@ export default {
         }),
 
         methods: {
-             searchingData(searching) {
+          searchingData(searching) {
           if(searching.length<3 && searching.length !==0){
             this.status = `Buffer...` 
             this.listData = postlist
           }else if(searching.length>=3){
-          this.listData = postlist.filter(post => {
+            this.listData = postlist.filter(post => {
             return post.title.toLowerCase().includes(searching.toLowerCase())
           })
             this.status = `Looking for : ${searching}` 
@@ -57,12 +57,9 @@ export default {
           setTimeout(() => {
           this.enable = false
           }, 5000)
-          // this.listData = this.listData.filter(
-          // (postlist) => postlist.id != cart.id)
         },
 
         delCart(cart){
-          // this.listData.push(cart)
           this.listSelect = this.listSelect.filter(
           (postlist) => postlist.id != cart.id)
           this.alert = "Success delete from cart"
