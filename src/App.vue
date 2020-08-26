@@ -2,7 +2,8 @@
   <div id="app">
    
    <SearchBox @searching-data="searchingData" :status="status"></SearchBox>
-   <Alert v-show="enable" :alert="alert"></Alert>
+   <Slot v-show="enable">{{alert}}</Slot>
+   <!-- <Alert v-show="enable" :alert="alert"></Alert> -->
    <PostList  :list-select="listSelect" :click="delCart"></PostList>
    <PostListData :list-data="listData" :click="addCart"></PostListData>
   </div>
@@ -13,8 +14,9 @@
 import postlist from './db/postlist.js'
 import SearchBox from './components/SearchBox.vue'
 import PostList from './components/PostList.vue'
-import Alert from './components/Alert.vue'
+//import Alert from './components/Alert.vue'
 import PostListData from './components/PostListData.vue'
+import Slot from './components/Slot.vue'
 
 export default {
   name: 'App',
@@ -22,7 +24,8 @@ export default {
     SearchBox,
     PostList,
     PostListData,
-    Alert,
+    Slot,
+   // Alert,
   },
       data: ()=> ({
         searching: "",
@@ -36,10 +39,9 @@ export default {
         methods: {
              searchingData(searching) {
           if(searching.length<3 && searching.length !==0){
-            this.enable = false
             this.status = `Buffer...` 
+            this.listData = postlist
           }else if(searching.length>=3){
-            this.enable = true
           this.listData = postlist.filter(post => {
             return post.title.toLowerCase().includes(searching.toLowerCase())
           })
