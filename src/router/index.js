@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import PostIndex from '../views/Post/PostIndex.vue'
+import Post from '../views/Post.vue'
 import PostList from '../views/Post/PostList.vue'
 import PostDetail from '../views/Post/PostDetail.vue'
 
-import PhotoIndex from '../views/Photo/PhotoIndex.vue'
+import Photo from '../views/Photo.vue'
 import PhotoList from '../views/Photo/PhotoList.vue'
 import PhotoDetail from '../views/Photo/PhotoDetail.vue'
 
-import AlbumIndex from '../views/Album/AlbumIndex.vue'
+import Album from '../views/Album.vue'
 import AlbumList from '../views/Album/AlbumList.vue'
 import AlbumDetail from '../views/Album/AlbumDetail.vue'
 
@@ -17,8 +17,8 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/post',
-    component: PostIndex,
-    name: "PostIndex",
+    component: Post,
+    name: "Post",
     children: [
       {
         path: "",
@@ -35,8 +35,8 @@ Vue.use(VueRouter)
   },
   {
     path: '/photo',
-    component: PhotoIndex,
-    name: "PhotoIndex",
+    component: Photo,
+    name: "Photo",
     children: [
       {
         path: "",
@@ -53,8 +53,8 @@ Vue.use(VueRouter)
   },
   {
     path: '/album',
-    component: AlbumIndex,
-    name: "AlbumIndex",
+    component: Album,
+    name: "Album",
     children: [
       {
         path: "",

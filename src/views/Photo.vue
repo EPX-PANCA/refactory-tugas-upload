@@ -1,6 +1,6 @@
 <template>
   <div class="photo">
-    
+  <router-view></router-view>
   </div>
 </template>
 
