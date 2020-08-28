@@ -1,5 +1,6 @@
 <template>
   <div class="post">
+  <h1>TES</h1>
   <router-view></router-view>
   </div>
 </template>

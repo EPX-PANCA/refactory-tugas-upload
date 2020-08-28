@@ -3,6 +3,7 @@
         <div
             class="flex grid grid-cols-1 mx-auto max-w-screen-lg rounded overflow-hidden shadow-lg bg-gray-100">
             <div class="pt-5 flex mx-auto"></div>
+            
             <div class="grid grid-cols-3 gap-5 p-10">
                 <div
                     v-for="album in albumData"
@@ -25,6 +26,7 @@
                     </div>
                 </div>
             </div>
+      
         </div>
     </div>
 </template>
@@ -33,14 +35,17 @@
 // @ is an alias to /src
 import albumDataAll from '@/dummy/albumData'
 
+
 export default {
   name: 'AlbumList',
   components: {
+   
 
   },
 
   data:()=>({
-    albumData:albumDataAll
+    albumData:albumDataAll,
+    paginate:['albumData']
   })
 }
 </script>

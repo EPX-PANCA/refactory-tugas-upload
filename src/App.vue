@@ -4,19 +4,23 @@
             <!-- <router-link to="/about">About</router-link> -->
             <NavBar/>
         </div>
+
         <router-view/>
+        <Footer/>
     </div>
 </template>
 
 <script>
 
-import NavBar from './components/NavBar.vue'
+    import NavBar from './components/NavBar.vue'
+    import Footer from './components/Footer.vue'
 
-export default {
-    components:{
-        NavBar,
-    },
-}
+    export default {
+        components: {
+            NavBar,
+            Footer
+        }
+    }
 </script>
 
 <style>
@@ -28,10 +32,6 @@ export default {
         color: #2c3e50;
     }
 
-    #nav {
-        padding: 30px;
-    }
-
     #nav a {
         font-weight: bold;
         color: #2c3e50;
@@ -41,8 +41,7 @@ export default {
         color: white;
     }
 
-
-    #nav a:hover{
-    color: gray;
+    #nav a:hover {
+        color: gray;
     }
 </style>
