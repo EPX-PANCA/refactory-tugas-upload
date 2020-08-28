@@ -32,6 +32,7 @@
 
     export default {
         name: 'PostDetail',
+        props:['id'],
         components: {},
         data: () => ({
             postData: []

@@ -1,73 +1,71 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Post from '../views/Post.vue'
-import PostList from '../views/Post/PostList.vue'
-import PostDetail from '../views/Post/PostDetail.vue'
-
-import Photo from '../views/Photo.vue'
-import PhotoList from '../views/Photo/PhotoList.vue'
-import PhotoDetail from '../views/Photo/PhotoDetail.vue'
-
-import Album from '../views/Album.vue'
-import AlbumList from '../views/Album/AlbumList.vue'
-import AlbumDetail from '../views/Album/AlbumDetail.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/post',
-    component: Post,
-    name: "Post",
-    children: [
+    name:'Post',
+    meta: { requiresAuth: false },
+    components: {
+      default:()=>import(/* webpackChunkName: "PostIndex" */'../views/Post/Post'),
+      'sidebar':()=>import(/* webpackChunkName: "SidebarPost" */'../components/Sidebar/SidebarPost')
+    },
+    children:[
       {
-        path: "",
-        name: 'PostList',
-        component: PostList,
-        
-      },
-      {
-        path: "detail/:id",
-        component: PostDetail,
-        name: "PostDetail",
-      },
-    ],
+      path:'',
+      name:'PostList',
+      component:()=>import (/* webpackChunkName: "PostList" */'../views/Post/PostList'),
+    },
+    {
+      path:'detail/:id',
+      name:'PostDetail',
+      props:true,
+      component:()=>import (/* webpackChunkName: "PostDetail" */'../views/Post/PostDetail')
+    }
+  ],
   },
+
   {
     path: '/photo',
-    component: Photo,
-    name: "Photo",
-    children: [
+    name:'Photo',
+    components: {
+      default:()=> import(/* webpackChunkName: "PhotoIndex" */'../views/Photo/Photo'),
+      'sidebar':()=>import(/* webpackChunkName: "SidebarPhoto" */'../components/Sidebar/SidebarPhoto')
+    },
+    children:[
       {
-        path: "",
-        name: 'PhotoList',
-        component: PhotoList,
-        
-      },
-      {
-        path: "detail/:id",
-        component: PhotoDetail,
-        name: "PhotoDetail",
-      },
-    ],
+      path:'',
+      name:'PhotoList',
+      component:()=>import (/* webpackChunkName: "PhotoList" */'../views/Photo/PhotoList')
+    },
+    {
+      path:'detail/:id',
+      name:'PhotoDetail',
+      component:()=>import (/* webpackChunkName: "PhotoDetail" */'../views/Photo/PhotoDetail')
+    }
+  ],
   },
   {
     path: '/album',
-    component: Album,
-    name: "Album",
-    children: [
+    name:'Album',
+    components: {
+      default:()=>import(/* webpackChunkName: "AlbumIndex" */'../views/Album/Album'),
+      'sidebar':()=>import(/* webpackChunkName: "SidebarAlbum" */'../components/Sidebar/SidebarAlbum')
+    },
+    children:[
       {
-        path: "",
-        name: 'AlbumList',
-        component: AlbumList,
-        
-      },
-      {
-        path: "detail/:id",
-        component: AlbumDetail,
-        name: "AlbumDetail",
-      },
-    ],
+      path:'',
+      name:'AlbumList',
+      component:()=>import (/* webpackChunkName: "AlbumList" */'../views/Album/AlbumList')
+    },
+    {
+      path:'detail/:id',
+      name:'AlbumDetail',
+      component:()=> import (/* webpackChunkName: "AlbumDetail" */'../views/Album/AlbumDetail')
+    }
+  ],
   },
   {
     path: '/',
@@ -75,7 +73,15 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
   }
 ]
 

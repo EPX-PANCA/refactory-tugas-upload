@@ -1,5 +1,5 @@
 <template>
-    <div class="p-10">
+    <div>
         <div
             class="flex grid grid-cols-1 mx-auto max-w-screen-lg rounded overflow-hidden shadow-lg bg-gray-100">
             <div class="pt-5 flex mx-auto"></div>

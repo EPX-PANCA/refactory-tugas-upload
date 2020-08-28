@@ -5,7 +5,14 @@
             <NavBar/>
         </div>
 
-        <router-view/>
+        <div class="flex">
+            <div class="w-4/6 m-4 bg-white">
+                <router-view/>
+            </div>
+            <div class="w-2/6 m-4 bg-white">
+                <router-view name="sidebar"/>
+            </div>
+        </div>
         <Footer/>
     </div>
 </template>
