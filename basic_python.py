@@ -65,6 +65,16 @@ print("\n")
 
 
 ############################# NOMOR 5 #############################
+def masking(text):
+    n = 3
+    string_1 = text[0:len(text)-n]
+    string_2 = text[len(text)-n:len(text)]
+    mask = '*' * len(string_1)
+    masking = mask + string_2
+    print(masking)
+
+secret_text = "23dn3ir30fd2eddd"
+masking(secret_text)
 
 print("\n")
 
