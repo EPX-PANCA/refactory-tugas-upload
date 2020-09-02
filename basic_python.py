@@ -9,7 +9,7 @@ def satu():
 
     joins = [*first, *second, *third]
 
-    print(', '.join(joins))
+    print(' '.join(joins))
 
 satu()
 print("\n")
@@ -31,7 +31,7 @@ text_2 = "Bruiser build"
 
 def tiga(text): 
     count = {}
-    for i in text.lower(): 
+    for i in text.lower().replace(" ",""): 
         if i in count: 
             count[i] += "*"
         else: 
@@ -47,7 +47,7 @@ print("\n")
 ############################# NOMOR 4 #############################
 def bubble_sort(numbers):
     exchanges = True
-    i = len(numbers)-2
+    i = len(numbers)-1
     step = 0
     while i > 0 and exchanges:
         exchanges = False
