@@ -10,7 +10,6 @@ def satu():
     joins = [*first, *second, *third]
 
     print(' '.join(joins))
-
 satu()
 print("\n")
 
