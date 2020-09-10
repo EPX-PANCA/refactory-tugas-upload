@@ -1,1 +1,3 @@
-# Tempat Upload Tugas Refactory : Tugas di simpan di branch yang berbeda 
+## Python Tryout
+
+### Yang selesai baru nomor 1 (udah bisa semua optionya) , wkwkwk
