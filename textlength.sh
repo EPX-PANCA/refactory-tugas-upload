@@ -1,4 +1,4 @@
 #!/bin/bash
 
-get=$1
+get=$*
 echo "text lenght is ${#get}"
