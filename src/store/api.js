@@ -5,7 +5,7 @@ const token = localStorage.getItem("token") || "";
 
 axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 const instance = axios.create({
-  baseURL: `http://localhost:${port}/api/v1/`,
+  baseURL: `http://be-wms-container:${port}/api/v1/`,
   headers: {
     "Content-Type": "application/json",
   },
