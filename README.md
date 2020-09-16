@@ -1,6 +1,6 @@
 # Microservices - 1 
 
-### DOCKER PUSH PULL : https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html
+### Docker Hub Link : https://hub.docker.com/repository/registry-1.docker.io/rectapanca/static-html/
 
 
 #### ========= Note ========
@@ -10,3 +10,5 @@
 #### push docker hub
 #### docker tag 3aafc31292ac rectapanca/static-html:tugas
 #### docker push rectapanca/static-html:tugas
+
+### DOCKER PUSH PULL - REFERENSi : https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html
