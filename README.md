@@ -35,7 +35,20 @@ docker-compose up -d
 #atau bisa juga, untuk melakukan build langsung
 docker-compose up -d --build
 ```
-Jika Proses docker-compoes selesai tanpa error, akses back-end dengan postman.
+selanjutnya jalankan migrasi di dalam container
+
+```sh
+#run ini di docker
+docker exec -it "nama-container-be" /bin/bash
+
+#lalu jalankan perintah dibawah ini didalam container
+
+npx sequelize-cli db:migrate
+# dan jalankan
+npx sequelize-cli db:seed:all
+```
+
+Jika sudah selesai tanpa error, akses back-end dengan postman.
 
 
 

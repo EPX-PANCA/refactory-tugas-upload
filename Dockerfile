@@ -25,7 +25,7 @@ ENV GMAIL_USERNAME=tesseq6@gmail.com
 ENV GMAIL_PASSWORD=sensor
 ENV DB_USERNAME=root
 ENV DB_PASSWORD=password
-ENV DB_HOST=mysql-app
+ENV DB_HOST=mysql
 ENV DB_NAME=simple_wms
 
 # RUN npx sequelize-cli db:migrate
