@@ -1,0 +1,7 @@
+.vscode
+node_modules
+config/config.json
+.env
+dist
+tmp
+yarn.lock
