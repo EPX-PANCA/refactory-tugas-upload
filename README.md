@@ -1,7 +1,41 @@
-# Doc Docker Compose
 ### Link Docker Hub : https://hub.docker.com/repository/docker/rectapanca/dock-comp-satu
 
-cara 
+## Clone Backend simple wms
+
+Clone dahulu project Backend simple wms
+
+
+
+## Docker Compose Documentation
+
+Docker compose file
+```docker-compose
+version: "3"
+services:
+
+  mysql-app: #nama service
+    image: mysql:5.7 #images
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: password #create password
+        MYSQL_DATABASE: simple_wms #create db
+  
+  wms-be-app:
+    build: . #build dir
+    ports: 
+        - 3000:3000
+    depends_on: 
+        - mysql-app
+```
+
+Jalankan docker compose
+```sh
+docker compose up -d
+
+#atau bisa juga, untuk melakukan build langsung
+docker compose up -d --build
+```
+Jika Proses docker-compoes selesai tanpa error, akses back-end dengan postman.
 
 
 

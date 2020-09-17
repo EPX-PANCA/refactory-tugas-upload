@@ -1,15 +1,15 @@
 version: "3"
 services:
 
-  mysql-app:
-    image: mysql:5.7
+  mysql-app: #nama service
+    image: mysql:5.7 #images
     restart: always
     environment:
-        MYSQL_ROOT_PASSWORD: password
-        MYSQL_DATABASE: simple_wms
+        MYSQL_ROOT_PASSWORD: password #create password
+        MYSQL_DATABASE: simple_wms #create db
   
   wms-be-app:
-    build: .
+    build: . #build dir
     ports: 
         - 3000:3000
     depends_on: 
@@ -18,10 +18,10 @@ services:
     #     - $PWD/:/usr/src/app/
   
 #buat ngetest phpmyadminnya
-  phpmyadmin:
-    image: phpmyadmin
-    restart: always
-    environment: 
-        PMA_HOST: mysql-app
-    ports: 
-        - 9090:80
+  # phpmyadmin:
+  #   image: phpmyadmin
+  #   restart: always
+  #   environment: 
+  #       PMA_HOST: mysql-app
+  #   ports: 
+  #       - 9090:80
