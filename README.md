@@ -30,16 +30,17 @@ services:
 
 Jalankan docker compose
 ```sh
-docker compose up -d
+docker-compose up -d
 
 #atau bisa juga, untuk melakukan build langsung
-docker compose up -d --build
+docker-compose up -d --build
 ```
 Jika Proses docker-compoes selesai tanpa error, akses back-end dengan postman.
 
 
 
-
+### Note untuk hapus semua
+docker container rm $(docker container ls -aq)
 
 
 
@@ -49,9 +50,6 @@ Jika Proses docker-compoes selesai tanpa error, akses back-end dengan postman.
 
 ## Api Documentation
 
--
--
--
 
 ### Sign Up
 

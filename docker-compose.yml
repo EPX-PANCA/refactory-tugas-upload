@@ -14,8 +14,8 @@ services:
         - 3000:3000
     depends_on: 
         - mysql-app
-    # volumes: 
-    #     - $PWD/:/usr/src/app/
+    volumes: 
+        - $PWD/:/usr/src/app/ # make vulomes
   
 #buat ngetest phpmyadminnya
   # phpmyadmin:
