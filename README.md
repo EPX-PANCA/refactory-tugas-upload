@@ -6,7 +6,7 @@ Clone dahulu project Backend simple wms
 
 
 
-## Docker Compose Documentation
+## Run Docker Compose
 
 Docker compose file
 ```docker-compose
