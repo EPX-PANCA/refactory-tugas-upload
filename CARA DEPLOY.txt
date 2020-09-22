@@ -1,0 +1,2 @@
+https://cli.vuejs.org/guide/deployment.html#heroku
+https://www.youtube.com/watch?v=UftutR5hz3U&ab_channel=BrentAureli%27s-CodeSchool
