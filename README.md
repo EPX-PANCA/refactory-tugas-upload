@@ -74,11 +74,16 @@ minikube addons list # untuk melihat addon ingrees sudah aktif atau belum
 #Jika ingress belum aktif, gunakan command dibawah untuk mengaktifkannya.
 
 minikube addons enable ingress
+
+# untuk cek ingress-nginx-controller
+
+kubectl get pods --namespace kube-system
+
 ```
 Langkah selanjutnya
 
 ```sh
-kubectl create -f service-loadbalancer.yaml
+kubectl create -f service-ingress.yaml
 #tunggu hingga proses selesai
 ```
 
