@@ -107,7 +107,7 @@ kubectl get ingresses
 ```
 
 
-Selanjutnya masuk tambahkan ip dan domain ke hosts
+Selanjutnya tambahkan ip dan domain ke hosts
 
 ```sh
 
