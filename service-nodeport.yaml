@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: static-html-nodeport
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: static-html-nodeport
+  template:
+    metadata:
+      name: static-html-nodeport
+      labels:
+        name: static-html-nodeport
+    spec:
+      containers:
+        - name : static-html-nodeport
+          image: rectapanca/static-html:tugas
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: statichtml-service-nodeport
+spec:
+  type: NodePort
+  selector: 
+    name: static-html-nodeport
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30001
